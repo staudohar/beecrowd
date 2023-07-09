@@ -1,0 +1,29 @@
+while True:
+    n, m = map(int, input().split())
+
+    if n == 0 and m == 0:
+        break
+
+    serversForApp = {}
+    connected = [[False] * m for _ in range(n)]
+    connectionCount = 0
+
+    for _ in range(n):
+        apps, *app_list = input().split()
+        app_list = list(app_list)
+
+        for app in app_list:
+            serversForApp.setdefault(app, []).append(_)
+
+    for _ in range(m):
+        apps, *app_list = input().split()
+        app_list = list(app_list)
+
+        for app in app_list:
+            servers = serversForApp.get(app, [])
+            for server in servers:
+                if not connected[server][_]:
+                    connected[server][_] = True
+                    connectionCount += 1
+
+    print(connectionCount)
