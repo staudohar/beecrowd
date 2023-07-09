@@ -1,0 +1,61 @@
+def maja():
+    global x, y, v, n
+
+    while True:
+        if n == 1:
+            return
+
+        v += 1
+        y += 1
+        n -= 1
+
+        if n == 1:
+            return
+
+        for i in range(v - 1):
+            x -= 1
+            y += 1
+            n -= 1
+            if n == 1:
+                return
+
+        for i in range(v):
+            x -= 1
+            n -= 1
+            if n == 1:
+                return
+
+        for i in range(v):
+            y -= 1
+            n -= 1
+            if n == 1:
+                return
+
+        for i in range(v):
+            x += 1
+            y -= 1
+            n -= 1
+            if n == 1:
+                return
+
+        for i in range(v):
+            x += 1
+            n -= 1
+            if n == 1:
+                return
+
+        for i in range(v):
+            y += 1
+            n -= 1
+            if n == 1:
+                return
+
+
+while True:
+    try:
+        n = int(input())
+        x = y = v = 0
+        maja()
+        print(f"{x} {y}")
+    except EOFError:
+        break
